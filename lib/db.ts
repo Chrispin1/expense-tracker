@@ -15,15 +15,3 @@ export const db = globalThis.prisma ?? new PrismaClient({ adapter });
 if (process.env.NODE_ENV !== "production") {
   globalThis.prisma = db;
 }
-
-async function newUser() {
-  const user = await prisma?.user.create({
-    data: {
-      id: "1",
-      name: "Chris",
-      email: "kiokondolo1@gmail.com",
-    },
-  });
-
-  const users = await prisma?.user.findMany();
-}
